@@ -3,6 +3,7 @@
 Fast Food Simulator é uma pequena aplicação que simula a rotina de um Fast Food convencional.
 Nele o usuário é capaz de cadastrar os produtos que vão compor o cardápio e efetuar pedidos.
 Fast Food Simulator foi desenvolvido pensando em exercitar os conhecimentos adquiridos em Spring MVC, Thymeleaf e Hibernate.
+[ASSISTIR](https://youtu.be/KpJbtIGS0SA).
 
 ## Tecnologias
 * Spring
