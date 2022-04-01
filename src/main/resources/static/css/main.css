@@ -1,0 +1,153 @@
+:root {
+    font-size: 10px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+html,
+body {
+    height: 100vh;
+    margin: 0
+}
+
+.container {
+    display: flex;
+    flex-flow: column;
+    height: 100vh;
+
+    width: 100%;
+    background-color: #FFFFFF;
+}
+
+.container .header {
+    width: 100%;
+    flex-grow: 0;
+    flex-basis: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    border: none;
+    background-color: #FFF2E5;
+    border-bottom: 0.2rem solid #FF441F;
+    height: 9rem;
+    padding: 2rem 6rem;
+}
+
+.container .content {
+    width: 100%;
+    flex-grow: 1;
+    flex-basis: auto;
+
+    background-color: #FFFFFF;
+    padding: 4rem 15rem;
+}
+
+.container .footer {
+    width: 100%;
+    flex-grow: 0;
+    flex-basis: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    background-color: #FFF2E5;
+    border-top: 0.2rem solid #FF441F;
+    height: 9rem;
+    padding: 2rem 6rem;
+}
+
+.header h1 {
+    font-size: 3rem;
+    font-family: 'Comfortaa', cursive;
+    color: #FF441F;
+}
+
+#header-title {
+    text-decoration: none;
+}
+
+.footer span {
+    display: inline;
+    font-size: 1.5rem;
+    font-family: 'Comfortaa', cursive;
+    color: #FF441F;
+}
+
+.footer span a {
+    text-decoration: none;
+    font-weight: 700;
+    color: #FF441F;
+}
+
+.default-box {
+    margin: 0 auto 0 auto;
+    max-width: 90rem;
+    padding: 4rem;
+    background-color: #FFF2E5;
+    border: 2px solid #FF441F;
+    border-radius: 1rem;
+}
+
+.default-box + .default-box {
+    margin-top: 4rem;
+}
+
+.default-border {
+    border: 2px solid #FF441F;
+    border-radius: 1rem;
+}
+
+.default-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1.5rem;
+    padding: 0 2rem;
+    min-height: 3rem !important;
+    background-color: #FF441F;
+    border: none;
+    border-radius: 0.5rem;
+    color: #FFFFFF;
+    cursor: pointer;
+
+    transition-property: transform;
+    transition-duration: 0.1s;
+}
+
+.default-button:hover {
+    transform: scale(1.03);
+}
+
+a.default-button {
+    text-decoration: none;
+}
+
+.default-box h2 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-family: 'Comfortaa', cursive;
+    font-weight: 700;
+    color: #FF441F;
+}
+
+.container-errors {
+    width: 100%;
+    margin-bottom: 3rem;
+}
+
+.container-errors h3 {
+    font-size: 1.5rem;
+    color: #751919;
+    font-style: italic;
+}

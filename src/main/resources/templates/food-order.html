@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{modelo :: layout(~{::title}, ~{::link}, ~{::.container})}">
+<head>
+    <title>Fast Food</title>
+    <link type="text/css" rel="stylesheet" href="/css/food-order.css">
+    <link type="text/css" rel="stylesheet" href="/css/table.css">
+</head>
+<body>
+
+    <div class="container">
+        <div th:replace="parts :: header"></div>
+
+        <div class="content">
+            <div class="default-box">
+                <h2 th:if="${#arrays.isEmpty(allOrders)}">There are no orders yet.</h2>
+                <table th:unless="${#arrays.isEmpty(allOrders)}">
+                    <thead>
+                        <tr>
+                            <th>Client</th>
+                            <th>Description</th>
+                            <th>Total(R$)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="order : ${allOrders}">
+                            <td th:text="${order.client}">Client</td>
+                            <td>
+                               <ul>
+                                   <li th:each="item : ${order.items}" th:text="|${item.quantity} - ${item.food.description}|">Description</li>
+                               </ul>
+                            </td>
+                            <td th:text="${order.total}">0</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div th:replace="parts :: footer"></div>
+    </div>
+
+</body>
+</html>

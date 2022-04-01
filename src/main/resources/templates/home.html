@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{modelo :: layout(_, ~{::link}, ~{::.container})}">
+<head>
+    <link type="text/css" rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+
+    <div class="container">
+        <div th:replace="parts :: header"></div>
+
+        <div class="content options">
+            <a th:href="@{/order}">
+                <img src="/images/annotation-icon.svg">
+                Make a wish
+            </a>
+            <a th:href="@{/food/settings}">
+                <img src="/images/cook-icon.svg">
+                I'm a cook
+            </a>
+        </div>
+
+        <div th:replace="parts :: footer"></div>
+    </div>
+
+</body>
+</html>

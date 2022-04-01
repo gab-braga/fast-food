@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{modelo :: layout(_, ~{::link}, ~{::.container})}">
+<head>
+    <link type="text/css" rel="stylesheet" href="/css/new-food-order.css">
+    <link type="text/css" rel="stylesheet" href="/css/form.css">
+    <link type="text/css" rel="stylesheet" href="/css/table.css">
+</head>
+<body>
+
+    <div class="container">
+        <div th:replace="parts :: header"></div>
+
+        <div class="content">
+            <div class="default-box">
+                <h2>Menu</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Category</th>
+                            <th>Description</th>
+                            <th>Price (R$)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="food : ${allFoods}">
+                            <td><img th:src="@{${food.image}}"/></td>
+                            <td th:text="${food.category}"></td>
+                            <td th:text="${food.description}"></td>
+                            <td th:text="${food.price}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="default-box">
+
+                <div class="container-errors" th:unless="${#arrays.isEmpty(errorMessages)}">
+                    <h3 th:each="error : ${errorMessages}" th:text="${error}">Error!</h3>
+                </div>
+
+                <form action="#" th:action="@{/order/new}" method="post" th:object="${order}" id="form-order">
+                    <div class="form">
+                        <div class="item-form">
+                            <label for="client">Client:</label>
+                            <input th:field="*{client}" class="default-border" id="client" type="text" maxlength="100"/>
+                        </div>
+                        <button class="default-button" type="submit" name="addItem">New Item</button>
+                        <div class="container-fields" th:each="item, itemStat : *{items}">
+                            <div class="item-form">
+                                <label for="food">Food:</label>
+                                <select th:field="*{items[__${itemStat.index}__].food}" class="default-border" id="food" name="food">
+                                    <option th:each="food : ${allFoods}" th:text="${food.description}" th:value="${food.code}"></option>
+                                </select>
+                            </div>
+                            <div class="item-form"  id="items-foods">
+                                <label for="quantity">Quantity:</label>
+                                <input th:field="*{items[__${itemStat.index}__].quantity}" class="default-border" id="quantity" name="quantity" type="number" min="0" max="50"/>
+                            </div>
+                            <div class="item-form">
+                                <button class="default-button" type="submit" name="removeItem" th:value="${itemStat.index}">Delete</button>
+                            </div>
+                        </div>
+                        <div class="item-form">
+                            <button class="default-button" type="submit" name="continue" th:unless="*{#arrays.isEmpty(items)}">Continue</button>
+                        </div>
+                    </div>
+                    <input type="hidden" form="form-order" th:field="*{total}" th:attr="value=*{total}"/>
+                </form>
+            </div>
+
+            <div th:if="${order.total > 0.0}" class="default-box">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Quantity</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="item : ${order.items}" th:if="${item.quantity > 0}">
+                            <td th:text="${item.quantity}">Quantity</td>
+                            <td th:text="${item.food.description}">Description</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div>
+                    <span id="label-text-total">Total (R$):</span>
+                    <span id="text-total" th:text="${order.total}">00.00</span>
+                </div>
+
+                <button  id="btn-finalize" form="form-order" class="default-button" type="submit" name="save">Finalize</button>
+            </div>
+        </div>
+
+        <div th:replace="parts :: footer"></div>
+    </div>
+</body>
+</html>

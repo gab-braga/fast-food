@@ -1,0 +1,46 @@
+table,
+table tr {
+    width: 100%;
+}
+
+table th,
+table td {
+    display: flex;
+    align-items: start;
+    font-family: 'Comfortaa', cursive;
+    font-size: 1.5rem;
+}
+
+table th {
+    color: #FF441F;
+    font-weight: 700;
+}
+
+table tr {
+    min-height: 4rem;
+    display: grid;
+    grid-gap: 2rem;
+    border-bottom: 2px solid #FF441F;
+    justify-content: left;
+    align-items: center;
+}
+
+table tbody tr {
+    padding: 1rem 0;
+}
+
+table tbody tr:last-child {
+    border: none;
+    height: auto;
+}
+
+td a {
+    text-decoration: none;
+    cursor: pointer;
+    transition-property: transform;
+    transition-duration: 0.1s;
+}
+
+td a:hover {
+    transform: scale(1.1);
+}

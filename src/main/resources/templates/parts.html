@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+
+    <div th:fragment="header" class="header">
+        <a id="header-title" href="/home" th:href="@{/home}"><h1>Fast Food</h1></a>
+        <a th:if="false" class="default-button" href="/login" th:href="@{/login}">Sign in</a>
+        <a th:if="${#httpServletRequest.requestURI == '/order'}" class="default-button" href="/order/new" th:href="@{/order/new}">New</a>
+    </div>
+
+    <div th:fragment="footer" class="footer">
+        <span>Created by <a href="http://f-gabriel-braga.github.io/site/">Gabriel Braga</a></span>
+    </div>
+
+</body>
+</html>

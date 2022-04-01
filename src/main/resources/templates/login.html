@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{modelo :: layout(~{::title}, ~{::link}, ~{::.container})}">
+<head>
+    <title>Login</title>
+    <link type="text/css" rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div th:if="${param.error}" class="alert-box alert-error">
+        Username or senha invalid!
+    </div>
+
+    <div th:if="${param.logout}" class="alert-box" alert-seccess>
+        You are desconected!
+    </div>
+
+    <div class="login-panel default-border">
+        <h1>Login</h1>
+        <form th:action="@{/home}" method="post">
+            <input name="username" type="text" placeholder="Username"/>
+            <input name="password" type="password" placeholder="Password"/>
+            <input class="default-button" type="submit" value="Login"/>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

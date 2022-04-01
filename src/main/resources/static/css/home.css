@@ -1,0 +1,43 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container .options {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .options a + a {
+    margin-left: 5rem;
+}
+
+.container .options a {
+    width: 20rem;
+    height: 15rem;
+    text-decoration: none;
+    font-size: 1.5rem;
+    background-color: #FF441F;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+}
+
+.container .options a:hover {
+    transform: scale(1.03);
+}
+
+.container .options a img {
+    width: 10rem;
+    height: 10rem;
+    margin-bottom: 1rem;
+}

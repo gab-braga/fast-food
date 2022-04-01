@@ -1,0 +1,50 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFF2E5 !important;
+}
+
+.login-panel {
+    width: 38rem;
+    height: 50rem;
+    background-color: #FFFFFF;
+    padding: 8rem 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.login-panel h1 {
+    width: 100%;
+    height: 20%;
+    text-align: center;
+    font-size: 3rem;
+    font-family: 'Comfortaa', cursive;
+    color: #FF441F;
+}
+
+.login-panel form {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.login-panel form input {
+    width: 100%;
+    height: 2rem;
+    font-size: 1.5rem;
+}
+
+.login-panel form input[type=text],
+.login-panel form input[type=password] {
+    height: 3rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-bottom: 2px solid #FF441F;
+}
+

@@ -1,0 +1,7 @@
+.form {
+    grid-template-columns: 1fr;
+}
+
+table tr {
+    grid-template-columns: 2fr 2fr 1fr;
+}

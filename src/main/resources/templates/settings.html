@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{modelo :: layout(_, ~{::link}, ~{::.container})}">
+<head>
+    <link type="text/css" rel="stylesheet" href="/css/settings.css">
+    <link type="text/css" rel="stylesheet" href="/css/form.css">
+    <link type="text/css" rel="stylesheet" href="/css/table.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <div th:replace="parts :: header"></div>
+
+        <div class="content">
+            <div class="default-box">
+
+                <div class="container-errors" th:unless="${#arrays.isEmpty(errorMessages)}">
+                    <h3 th:each="error : ${errorMessages}" th:text="${error}">Error!</h3>
+                </div>
+
+                <form th:action="@{/food/save}" method="post">
+                    <div class="form">
+                        <div class="item-form">
+                            <label for="code">Code:</label>
+                            <input class="default-border" id="code" name="code" type="number" min="0" max="1000"/>
+                        </div>
+                        <div class="item-form">
+                            <label for="description">Description:</label>
+                            <input class="default-border" id="description" name="description" type="text" maxlength="100"/>
+                        </div>
+                        <div class="item-form">
+                            <label for="category">Category:</label>
+                            <select class="default-border" id="category" name="category">
+                                <option value="pizzas">Pizzas</option>
+                                <option value="burgers">Burgers</option>
+                                <option value="fries">Fries</option>
+                                <option value="drinks">Drinks</option>
+                            </select>
+                        </div>
+                        <div class="item-form">
+                            <label for="price">Price (R$):</label>
+                            <input class="default-border" id="price" name="price" type="number"  min="0" max="1000" step="any"/>
+                        </div>
+                        <div class="item-form">
+                            <label for="image">Image (URL):</label>
+                            <input class="default-border" id="image" name="image" type="url"  maxlength="255"/>
+                        </div>
+                        <div class="item-form">
+                            <input type="submit" value="Salvar" class="default-button"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="default-box" th:if="${not foods.isEmpty()}">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Description</th>
+                            <th>Price (R$)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="food : ${foods}">
+                            <td th:text="${food.code}"></td>
+                            <td th:text="${food.description}"></td>
+                            <td th:text="${food.price}"></td>
+                            <td><a href="#" th:href="${(#mvc.url('FC#foodDelete').arg(0, food.code)).build()}"><img src="/images/trash-icon.svg"></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div th:replace="parts :: footer"></div>
+    </div>
+
+</body>
+</html>

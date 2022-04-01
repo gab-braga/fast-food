@@ -1,0 +1,32 @@
+.form {
+    display: grid;
+    grid-column-gap: 4rem;
+    grid-row-gap: 1.5rem;
+}
+
+.form + .form {
+     margin-top: 3rem;
+ }
+
+.form .item-form {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: end;
+}
+
+.form .item-form label {
+    margin-bottom: 0.8rem;
+    font-size: 1.5rem;
+    font-family: 'Comfortaa', cursive;
+    font-weight: 700;
+    color: #FF441F;
+}
+
+.form .item-form select,
+.form .item-form input {
+    height: 3rem;
+    width: 100%;
+    border-radius: 0.5rem;
+    padding: 0 1rem;
+}
